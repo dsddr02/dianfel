@@ -1,0 +1,10 @@
+services:
+  dianfe_app:
+    image: ddg066/dianfe:latest
+    container_name: dianfe
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./.env:/app/.env  # 确保挂载到正确的容器路径
+    restart: "no"
+    init: true
