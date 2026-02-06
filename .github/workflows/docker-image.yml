@@ -30,9 +30,9 @@ jobs:
     
     - name: Build and push Docker image
       run: |
-        PLATFORMS=linux/arm64
-        DOCKER_IMAGE=ddg066/dianfel
-        ARCH_TAGS="arm64"
+        PLATFORMS=linux/arm64,linux/amd64
+        DOCKER_IMAGE=ddg066/dianfe
+        ARCH_TAGS="arm64 amd64"
         VERSION=${{ inputs.version }}
         
         docker buildx build --build-arg VERSION=${VERSION} --platform $PLATFORMS -t $DOCKER_IMAGE:latest -t $DOCKER_IMAGE:${VERSION} --file Dockerfile-for-github-action --push .
